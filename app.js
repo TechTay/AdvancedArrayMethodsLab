@@ -180,8 +180,8 @@ console.log("Id and Serving Count Matches: ", equalsServing);
 //4. Create a function that will return only dishes whose serving count is even.
 //Filter
 
-function evenServingCount(servings) {
-  if (servings % 2 === 0) {
+function evenServingCount(el) {
+  if (el.servings % 2 === 0) {
     return true;
   } else {
     return false;
@@ -190,10 +190,22 @@ function evenServingCount(servings) {
 
 let evenServings = dishes.filter(evenServingCount); 
 
-console.log(evenServings);
+console.log(" Foods that have even servings: ", evenServings);
 
 //5. Create a function that will return dishes whose ingredients array is "tomato" and "cheese".
 //Filter
+
+function tomatoAndCheese (el) {
+  if (el.ingredients === 'tomato' && el.ingredients === 'cheese') {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+let twoIngredients = dishes.filter(tomatoAndCheese); 
+
+console.log("Food that has tomato and cheese: ", twoIngredients);
 
 //6. Create a function that will return an array of only the names of the cuisine types. Ie ['Italian', 'Mexican', ...]
 //Map
