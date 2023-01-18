@@ -195,27 +195,70 @@ console.log(" Foods that have even servings: ", evenServings);
 //5. Create a function that will return dishes whose ingredients array is "tomato" and "cheese".
 //Filter
 
-function tomatoAndCheese (el) {
-  if (el.ingredients === 'tomato' && el.ingredients === 'cheese') {
-    return true;
-  } else {
-    return false;
-  }
+function tomatoAndCheese() {
+  let twoIngredients = dishes.filter(function (el) {
+    if (el.ingredients[0] === 'tomato' && el.ingredients[1] === 'cheese') {
+      return true;
+    } else {
+      return false;
+    }
+  })
+
+  return twoIngredients;
 }
 
-let twoIngredients = dishes.filter(tomatoAndCheese); 
+let allIngredients= tomatoAndCheese();
+console.log("Food that has tomato and cheese: ", allIngredients);
 
-console.log("Food that has tomato and cheese: ", twoIngredients);
 
 //6. Create a function that will return an array of only the names of the cuisine types. Ie ['Italian', 'Mexican', ...]
 //Map
 
+let typesOfFood = dishes.map(function(el){
+  return el.cuisine;
+})
+
+console.log("These are the types of food: ", typesOfFood)
+
 //7. Create a function that will append the cuisine type to the start of the dish's name. Ie, "Italian Pizza"
 //Map
+
+function mapOverDishes(){
+  let mappedDishes = dishes.map(function(el){
+   return el.cuisine + " " + el.name
+  })
+  return mappedDishes 
+}
+
+console.log(mapOverDishes())
 
 //8. Create a function that will append the cuisine type to the start of the dish's name. Then, return only the Vegetarian dish objects. 
 //This function should return objects 11-13 with their names changed to "Vegetarian Lasagna", "Vegetarian Falafel", "Vegetarian Chili"
 //Map, Filter
+
+function mapOverDishes(){
+  let mappedDishes = dishes.map(function(el){
+   return el.cuisine + " " + el.name
+  })
+  return mappedDishes 
+
+  function findVegetarianFoods() {
+    let veggiesOnly = dishes.filter(function (el) {
+      if (el.cuisine === "Vegetarian") {
+        return true;
+      } else {
+        return false;
+      }
+    })
+  
+    return veggiesOnly;
+  }
+  
+}
+let vegetarianFoods = findVegetarianFoods();
+  console.log(vegetarianFood);
+
+console.log(mapOverDishes())
 
 // <<<<<<<<<<<<<<<<< BONUS <<<<<<<<<<<<<<<<<
 //9. Create a function that will return dishes whose ingredients array INCLUDES "chickpea".
